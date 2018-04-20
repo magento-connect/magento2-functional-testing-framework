@@ -102,7 +102,7 @@ class WebapiExecutor extends AbstractExecutor implements CurlInterface
             $finalUrl = $this->getFormattedUrl($url);
         }
         $this->transport->write(
-            $url,
+            $finalUrl,
             json_encode($data, JSON_PRETTY_PRINT),
             $method,
             array_unique(array_merge($headers, $this->headers))
