@@ -95,10 +95,14 @@ class WebapiExecutor extends AbstractExecutor implements CurlInterface
      * @param array $headers
      * @return void
      */
-    public function write($url, $data = [], $method = CurlInterface::POST, $headers = [])
+    public function write($url, $data = [], $method = CurlInterface::POST, $headers = [], $directRequest = false)
     {
+        $finalUrl = $url;
+        if (!$directRequest) {
+            $finalUrl = $this->getFormattedUrl($url);
+        }
         $this->transport->write(
-            $this->getFormattedUrl($url),
+            $url,
             json_encode($data, JSON_PRETTY_PRINT),
             $method,
             array_unique(array_merge($headers, $this->headers))

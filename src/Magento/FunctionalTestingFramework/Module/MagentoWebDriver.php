@@ -455,7 +455,7 @@ class MagentoWebDriver extends WebDriver
     public function deleteEntityByUrl($url)
     {
         $executor = new WebapiExecutor(null);
-        $executor->write($url, [], CurlInterface::DELETE, []);
+        $executor->write($url, [], CurlInterface::DELETE, [], true);
         $response = $executor->read();
         $executor->close();
         return $response;
