@@ -156,7 +156,8 @@ class CurlHandler
             $apiUrl,
             $this->requestData,
             self::$curlMethodMapping[$this->operation],
-            $headers
+            $headers,
+            false
         );
 
         $response = $executor->read($successRegex, $returnRegex);

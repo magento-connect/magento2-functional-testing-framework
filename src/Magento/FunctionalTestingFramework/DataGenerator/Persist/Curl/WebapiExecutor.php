@@ -93,6 +93,7 @@ class WebapiExecutor extends AbstractExecutor implements CurlInterface
      * @param array $data
      * @param string $method
      * @param array $headers
+     * @param bool $directRequest
      * @return void
      */
     public function write($url, $data = [], $method = CurlInterface::POST, $headers = [], $directRequest = false)
